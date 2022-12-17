@@ -81,11 +81,12 @@
                     class="card-img-top"
                     alt="asd"
                     width="200"
+                    height="150"
+                    rounded
                   />
                   <div class="card-body">
-                    <h3 class="card-title">{{ barang.id }}</h3>
-                    <h3 class="card-title">{{ barang.namaBarang }}</h3>
-                    <h5 class="card-title">{{ barang.hargaBarang }}</h5>
+                    <h3 class="card-subtitle">{{ barang.namaBarang }}</h3>
+                    <h5 class="card-title">Rp. {{ barang.hargaBarang }}</h5>
                     <router-link
                       :to="{
                         name: 'barang.detailBarang',

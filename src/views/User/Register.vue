@@ -35,6 +35,7 @@
               <div class="form-group mb-3">
                 <label for="content" class="form-label">Password</label>
                 <input
+                  type="password"
                   class="form-control"
                   v-model="user.password"
                   placeholder="Masukkan password"

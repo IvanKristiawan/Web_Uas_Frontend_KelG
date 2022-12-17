@@ -37,27 +37,34 @@
             <div class="col">
               <div class="p-3">
                 <h3>Toko A</h3>
-                <div v-for="(barang, id) in barangs" :key="id">
-                  <div class="col">
-                    <div class="card">
-                      <img
-                        v-bind:src="barang.gambarBarang"
-                        class="card-img-top"
-                        alt="asd"
-                        width="200"
-                      />
-                      <div class="card-body">
-                        <h3 class="card-title">{{ barang.namaBarang }}</h3>
-                        <h5 class="card-title">{{ barang.hargaBarang }}</h5>
-                        <h5 class="card-title">
-                          Kuantitas: {{ barang.kuantitas }}
-                        </h5>
-                        <button
-                          class="btn btn-sm btn-danger ml-1"
-                          @click="hapus(barang.id)"
-                        >
-                          Hapus
-                        </button>
+                <div style="display: flex">
+                  <div
+                    v-for="(barang, id) in barangs"
+                    :key="id"
+                    style="margin-right: 10px; margin-bottom: 10px"
+                  >
+                    <div class="col">
+                      <div class="card">
+                        <img
+                          v-bind:src="barang.gambarBarang"
+                          class="card-img-top"
+                          alt="asd"
+                          width="200"
+                          height="100"
+                        />
+                        <div class="card-body">
+                          <h3 class="card-title">{{ barang.namaBarang }}</h3>
+                          <h5 class="card-title">{{ barang.hargaBarang }}</h5>
+                          <h5 class="card-title">
+                            Kuantitas: {{ barang.kuantitas }}
+                          </h5>
+                          <button
+                            class="btn btn-sm btn-danger ml-1"
+                            @click="hapus(barang.id)"
+                          >
+                            Hapus
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>

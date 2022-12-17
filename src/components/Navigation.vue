@@ -30,7 +30,9 @@
   </head>
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
-      <router-link :to="{ name: 'components.home' }" class="bi-house-fill"
+      <router-link
+        :to="{ name: 'components.home' }"
+        class="btn btn-outline-primary bi-house-fill"
         >Home</router-link
       >
       <div class="d-flex my-2 my-lg-0">
@@ -40,26 +42,33 @@
             name: 'barang.keranjang',
             params: { id: user.idUser },
           }"
-          class="btn btn-sm btn-primary mr-1"
+          class="btn btn-outline-primary bi-basket-fill me-2"
         >
-          Keranjang</router-link
-        >
+        </router-link>
         <router-link
           v-if="!user.namaUser"
           :to="{ name: 'user.login' }"
-          class="btn btn-warning"
+          class="btn btn-warning me-2"
           >Login</router-link
         >
         <router-link
           v-if="!user.namaUser"
           :to="{ name: 'user.register' }"
-          class="btn btn-info"
+          class="btn btn-info me-2"
           >Register</router-link
         >
-        <p>{{ user.namaUser }}</p>
+        <!-- <p>{{ user.namaUser }}</p> -->
         <form @submit.prevent="logout" v-if="user.namaUser">
-          <button type="submit" class="btn btn-primary">Logout</button>
+          <button type="submit" class="btn btn-outline-primary me-2">
+            Logout
+          </button>
         </form>
+        <button
+          type="button"
+          class="btn btn-outline-primary bi-person-badge-fill me-2"
+        >
+          {{ user.namaUser }}
+        </button>
       </div>
     </div>
   </nav>
