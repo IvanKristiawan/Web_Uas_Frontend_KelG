@@ -16,15 +16,12 @@
               </div>
               <div v-for="(review, id) in reviews" :key="id">
                 <div class="col">
-                  <p class="card-title">{{ review.namaUser }}</p>
+                  <b class="card-title">{{ review.namaUser }}</b>
                   <vue3-star-ratings
                     v-model="review.rating"
                     :showControl="false"
                     :disableClick="false"
                   />
-                  <!-- <AwesomeVueStarRating :star="this.star" ></AwesomeVueStarRating> -->
-
-                  <!-- <p class="card-title">{{ review.rating }}</p> -->
                 </div>
               </div>
               <label for="content" class="form-label">Masukkan Rating</label>
@@ -33,14 +30,7 @@
                 :disableClick="false"
               />
               <form @submit.prevent="store">
-                <div class="form-group mb-3">
-                  <!-- <input
-                    class="form-control"
-                    type="number"
-                    v-model="tempRating.rating"
-                    placeholder="Masukkan rating"
-                  /> -->
-                </div>
+                <div class="form-group mb-3"></div>
                 <button type="submit" class="btn btn-primary">
                   SIMPAN REVIEW
                 </button>
@@ -142,12 +132,6 @@ export default {
           console.log(error.response.data);
         });
     });
-    function decrement() {
-      tempKuantitas.kuantitas--;
-    }
-    function increment() {
-      tempKuantitas.kuantitas++;
-    }
     function store() {
       let rating = tempRating.rating;
       axios
@@ -156,7 +140,7 @@ export default {
           idUser: localStorage.getItem("id"),
           namaUser: localStorage.getItem("name"),
           gambarBarang: barang.gambarBarang,
-          kuantitas: 1,
+          kuantitas: tempKuantitas.kuantitas,
           idBarang: id,
         })
         .then((response) => {
@@ -178,6 +162,7 @@ export default {
           gambarBarang: barang.gambarBarang,
           kuantitas: tempKuantitas.kuantitas,
           namaBarang: barang.namaBarang,
+          hargaBarang: barang.hargaBarang * tempKuantitas.kuantitas,
         })
         .then((response) => {
           //redirect ke post index
@@ -200,8 +185,6 @@ export default {
       tempRating,
       tempKuantitas,
       masukKeranjang,
-      decrement,
-      increment,
     };
   },
 };

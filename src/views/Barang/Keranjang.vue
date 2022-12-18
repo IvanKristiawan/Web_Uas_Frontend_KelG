@@ -36,7 +36,6 @@
           <div class="row-cols-5 row-cols-md-6 g-4">
             <div class="col">
               <div class="p-3">
-                <h3>Toko A</h3>
                 <div style="display: flex">
                   <div
                     v-for="(barang, id) in barangs"
@@ -54,9 +53,11 @@
                         />
                         <div class="card-body">
                           <h3 class="card-title">{{ barang.namaBarang }}</h3>
-                          <h5 class="card-title">{{ barang.hargaBarang }}</h5>
                           <h5 class="card-title">
                             Kuantitas: {{ barang.kuantitas }}
+                          </h5>
+                          <h5 class="card-title">
+                            Total Harga: {{ barang.hargaBarang }}
                           </h5>
                           <button
                             class="btn btn-sm btn-danger ml-1"

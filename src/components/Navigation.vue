@@ -63,12 +63,12 @@
             Logout
           </button>
         </form>
-        <button
-          type="button"
+        <router-link
+          v-if="user.namaUser"
+          :to="{ name: 'user.profilUser' }"
           class="btn btn-outline-primary bi-person-badge-fill me-2"
+          >{{ user.namaUser }}</router-link
         >
-          {{ user.namaUser }}
-        </button>
       </div>
     </div>
   </nav>

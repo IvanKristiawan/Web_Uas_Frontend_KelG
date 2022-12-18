@@ -19,6 +19,16 @@ const routes = [
         component: () => import("@/components/LandingPage.vue")
       },
       {
+        path: "/editUser",
+        name: "user.editUser",
+        component: () => import("@/views/User/EditUser.vue")
+      },
+      {
+        path: "/profileUser",
+        name: "user.profilUser",
+        component: () => import("@/views/User/ProfileUser.vue")
+      },
+      {
         path: "/detailBarang/:id",
         name: "barang.detailBarang",
         component: () => import("@/views/Barang/DetailBarang.vue")
