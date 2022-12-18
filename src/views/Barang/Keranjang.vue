@@ -68,13 +68,22 @@
                         </div>
                       </div>
                     </div>
+                    <button
+                      class="btn btn-primary"
+                      @click="
+                        hapus(barang.id);
+                        bayar();
+                      "
+                    >
+                      Bayar
+                    </button>
                   </div>
                 </div>
-                <form @submit.prevent="bayar">
-                  <button type="submit" class="btn btn-primary">Bayar</button>
-                </form>
               </div>
             </div>
+            <button class="btn btn-primary" @click="bayarSemua(barang.id)">
+              Bayar Semua
+            </button>
           </div>
         </div>
       </div>
@@ -94,6 +103,7 @@ export default {
       namaUser: "",
     });
     //reactive state
+
     let barangs = ref([]);
     //state validation
     const validation = ref([]);
@@ -136,6 +146,14 @@ export default {
       router.push({
         name: "barang.sudahTerbayar",
       });
+    }
+    function bayarSemua(id) {
+      for (let i = 0; i < barangs.value.length; i++) {
+        axios.delete(
+          `https://tubesuaswebbackend.itkitapro.com/api/keranjang/${id}`,
+          {}
+        );
+      }
     }
     //return
     return {

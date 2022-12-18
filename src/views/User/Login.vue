@@ -32,7 +32,7 @@
                   {{ validation.password[0] }}
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary">SIMPAN</button>
+              <button type="submit" class="btn btn-primary">Masuk</button>
             </form>
           </div>
         </div>

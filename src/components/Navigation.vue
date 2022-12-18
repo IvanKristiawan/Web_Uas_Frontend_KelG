@@ -102,8 +102,8 @@
         style="font-size: 40px; color: lightskyblue; padding-right: 3cm"
       >
       </a>
-      <a style="padding-right: 3cm"> (nomor telepon) </a>
-      <a style="padding-right: 3cm">about us</a>
+      <a style="padding-right: 3cm"> 035-336412 </a>
+      <a style="padding-right: 3cm">About Us</a>
     </div>
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.3)">
       E-Commerce Web by Kelompok G
@@ -114,12 +114,14 @@
     
     <script>
 import { reactive, onMounted } from "vue";
+import { useRouter } from "vue-router";
 export default {
   setup() {
     const user = reactive({
       idUser: "",
       namaUser: "",
     });
+    const router = useRouter();
     //mounted
     onMounted(() => {
       user.idUser = localStorage.getItem("id");
@@ -127,6 +129,9 @@ export default {
     });
     function logout() {
       user.namaUser = null;
+      router.push({
+        name: "barang.login",
+      });
     }
     //return
     return {
