@@ -143,7 +143,7 @@ export default {
           kuantitas: tempKuantitas.kuantitas,
           idBarang: id,
         })
-        .then((response) => {
+        .then(() => {
           //redirect ke post index
           router.push({
             name: "components.home",
@@ -164,7 +164,7 @@ export default {
           namaBarang: barang.namaBarang,
           hargaBarang: barang.hargaBarang * tempKuantitas.kuantitas,
         })
-        .then((response) => {
+        .then(() => {
           //redirect ke post index
           router.push({
             name: "barang.keranjang",
@@ -189,7 +189,7 @@ export default {
   },
 };
 </script>
-<style lang="scss">
+<style>
 .dot {
   height: 18px;
   width: 18px;
@@ -280,8 +280,8 @@ export default {
 .star.active {
   color: red;
 }
-.list,
-.list.disabled {
+/* .list,
+.list.disabled:hover {
   &:hover {
     .star {
       color: red !important;
@@ -290,5 +290,5 @@ export default {
       color: red;
     }
   }
-}
+} */
 </style>

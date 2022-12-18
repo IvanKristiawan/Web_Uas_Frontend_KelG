@@ -77,7 +77,6 @@
                               class="btn btn-primary"
                               @click="
                                 hapus(barang.id);
-                                bayar();
                               "
                             >
                               Bayar
@@ -102,11 +101,9 @@
 <script>
 import axios from "axios";
 import { reactive, ref, onMounted } from "vue";
-import { useRouter, useRoute } from "vue-router";
+import { useRouter } from "vue-router";
 export default {
   setup() {
-    const route = useRoute();
-    const id = route.params.id;
     const user = reactive({
       idUser: "",
       namaUser: "",

@@ -21,9 +21,7 @@
 </template>
 
 <script>
-import { reactive, ref, onMounted } from "vue";
-import { useRouter, useRoute } from "vue-router";
-import axios from "axios";
+import { useRouter } from "vue-router";
 export default {
   setup() {
     //vue router

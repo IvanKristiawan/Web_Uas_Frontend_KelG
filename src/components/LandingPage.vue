@@ -109,16 +109,11 @@
 
 <script>
 import axios from "axios";
-import { useRouter } from "vue-router";
 import { onMounted, ref } from "vue";
 export default {
   setup() {
     //reactive state
     let barangs = ref([]);
-    //state validation
-    const validation = ref([]);
-    //vue router
-    const router = useRouter();
     //mounted
     onMounted(() => {
       //get API from Laravel Backend
