@@ -59,29 +59,38 @@
                           <h5 class="card-title">
                             Total Harga: {{ barang.hargaBarang }}
                           </h5>
-                          <button
-                            class="btn btn-sm btn-danger ml-1"
-                            @click="hapus(barang.id)"
+                          <div
+                            style="
+                              display: flex;
+                              justify-content: center;
+                              flex-direction: column;
+                            "
                           >
-                            Hapus
-                          </button>
+                            <button
+                              class="btn btn-sm btn-danger ml-1"
+                              @click="hapus(barang.id)"
+                            >
+                              Hapus
+                            </button>
+                            <button
+                              style="margin-top: 10px"
+                              class="btn btn-primary"
+                              @click="
+                                hapus(barang.id);
+                                bayar();
+                              "
+                            >
+                              Bayar
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
-                    <button
-                      class="btn btn-primary"
-                      @click="
-                        hapus(barang.id);
-                        bayar();
-                      "
-                    >
-                      Bayar
-                    </button>
                   </div>
                 </div>
               </div>
             </div>
-            <button class="btn btn-primary" @click="bayarSemua(barang.id)">
+            <button class="btn btn-primary" @click="bayar()">
               Bayar Semua
             </button>
           </div>
@@ -143,17 +152,15 @@ export default {
         });
     }
     function bayar() {
-      router.push({
-        name: "barang.sudahTerbayar",
-      });
-    }
-    function bayarSemua(id) {
       for (let i = 0; i < barangs.value.length; i++) {
         axios.delete(
-          `https://tubesuaswebbackend.itkitapro.com/api/keranjang/${id}`,
+          `https://tubesuaswebbackend.itkitapro.com/api/keranjang/${barangs.value[i].id}`,
           {}
         );
       }
+      router.push({
+        name: "barang.sudahTerbayar",
+      });
     }
     //return
     return {
